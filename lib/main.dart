@@ -65,8 +65,7 @@ class _MyHomePageState extends State<_MyHomePage> {
 
       var interpreterOptions = tfl.InterpreterOptions()
         ..addDelegate(gpuDelegateV2);
-      interpreter = await tfl.Interpreter.fromAsset('mobilefacenet.tflite',
-          options: interpreterOptions);
+      interpreter = await tfl.Interpreter.fromAsset('mobilefacenet.tflite');
     } on Exception {
       print('Failed to load model.');
     }
@@ -348,7 +347,7 @@ class _MyHomePageState extends State<_MyHomePage> {
             );
           }),
       actions: <Widget>[
-        new FlatButton(
+        new TextButton(
           child: Text("OK"),
           onPressed: () {
             _initializeCamera();
@@ -384,14 +383,14 @@ class _MyHomePageState extends State<_MyHomePage> {
         ],
       ),
       actions: <Widget>[
-        new FlatButton(
+        new TextButton(
             child: Text("Save"),
             onPressed: () {
               _handle(_name.text.toUpperCase());
               _name.clear();
               Navigator.pop(context);
             }),
-        new FlatButton(
+        new TextButton(
           child: Text("Cancel"),
           onPressed: () {
             _initializeCamera();
